@@ -1,0 +1,35 @@
+.blog-card{
+  width: 100%;
+}
+.card-desktop-image{
+  height: 100px;
+  width: auto;
+  background-color: teal;
+}
+
+mat-card-avater, .avatar{
+  width: 40px;
+  height: 40px;
+}
+
+.desktop {
+  display: none;
+}
+.mobile {
+   display: block;
+}
+
+/* mobile */
+.mobile-blog-image {
+  width: 100px;
+  height: auto;
+}
+
+@media screen and (min-width: 600px){
+  .desktop {
+    display: flex;
+  }
+  .mobile{
+    display: none;
+  }
+}

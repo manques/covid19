@@ -1,0 +1,36 @@
+<!-- spinner -->
+<div *ngIf="spinner">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="d-flex justify-content-center p-5 ">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<!--  alert -->
+  <div *ngIf="data" class="alert alert-success alert-dismissible">
+    <button (click)="back()" class="close" data-dismiss="alert" >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <strong>{{data?.message}}<span (click)="back()" class="text-danger">login</span></strong>
+  </div>
+<!-- login form -->
+<div *ngIf="!spinner && !data" class="d-flex justify-content-center py-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="d-flex justify-content-center">
+          <!-- email/ phone -->
+          <mat-form-field appearance="outline">
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-label>Username(email/phone)</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-center">
+          <!-- password -->
+          <mat-form-field appearance="outline">
+            <mat-icon (click)="hide = !hide" matPrefix>{{hide ? 'visibility_off' :  'visibility'}}</mat-icon>
+            <mat-label>Password</mat-label>
+            <input [type]=" hide ? 'password' : 'text'" matInput formControlName="password">
+          </mat-form-field>
+        </div>
+        <button type="submit" color="accent" class="w-100" mat-raised-button [disabled]="this.loginForm.invalid">Login</button>
+      </form>
+</div>

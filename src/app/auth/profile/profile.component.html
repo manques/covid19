@@ -1,0 +1,65 @@
+<!-- spinner -->
+<div *ngIf="spinner">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <div class="d-flex justify-content-center p-5">
+      <mat-spinner></mat-spinner>
+    </div>
+</div>
+
+<div *ngIf="!spinner" class="d-flex justify-content-center py-3">
+  <mat-card class="card-profile">
+    <!-- profile image -->
+    <div class="profile-image-box d-flex justify-content-center"
+         matTooltipPosition="below"
+         matTooltip="change profile picture">
+      <img class="profile-image"  [src]="url || '../../../favicon.ico'"   />
+      <input type="file"  #image  style="display: none;" (change)="onChange($event)" />
+      <button (click)="image.click()"
+              mat-icon-button class="shadow"
+              >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <!-- name -->
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-column">
+        <button mat-button class=" py-1">
+          <mat-icon>person</mat-icon>&nbsp;<strong>{{user?.name}}</strong>
+        </button>
+        <button mat-button class="">
+          <mat-icon>email</mat-icon>&nbsp;<strong>{{user?.email}}</strong>
+        </button>
+        <button mat-button class="">
+         <mat-icon>phone_iphone</mat-icon>&nbsp;<strong>{{user?.phone}}</strong>
+        </button>
+      </div>
+    </div>
+    <!-- role -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select [(value)]="role" (selectionChange)="changeSelect($event)">
+          <mat-option value="normal">normal</mat-option>
+          <mat-option value="blogger">blogger</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="role == 'blogger'" class="d-flex justify-content-center">
+  <mat-card class="card-profile">
+    <div class="  w-100">
+      <div class=" py-1">
+        <a routerLink="/add-blog" color="accent" class="w-100" mat-raised-button>
+          <mat-icon>add</mat-icon> &nbsp; Add Blog
+        </a>
+      </div>
+      <div class="py-1">
+        <a routerLink="/blog-list" color="accent"  class="w-100" mat-raised-button>
+          <mat-icon>list</mat-icon> &nbsp; List Blog
+        </a>
+      </div>
+    </div>
+  </mat-card>
+</div>

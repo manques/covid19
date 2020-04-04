@@ -1,0 +1,48 @@
+<div *ngIf="spinner">
+  <mat-progress-bar></mat-progress-bar>
+  <div class="d-flex justify-content-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<!-- blog -->
+<mat-card *ngIf="!spinner" class="d-flex justify-content-center  my-5  p-2">
+  <div class="blog-card border border-secondary">
+    <!--  -->
+    <div class="bg-warning px-3 py-2">
+      <h1 class="text-danger p-0 m-0">
+        <strong>{{blog.title}}</strong>
+      </h1>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-secondary p-0 m-0  mb-2">{{blog.category}}</p>
+        </div>
+        <div class="col-md-6">
+          <button mat-icon-button>
+            <mat-icon>share</mat-icon>
+          </button>
+          <img src="https://img.icons8.com/color/35/000000/facebook-new.png"/>
+          <img src="https://img.icons8.com/color/35/000000/google-plus--v1.png"/>
+          <img src="https://img.icons8.com/color/35/000000/instagram-new.png"/>
+          <img src="https://img.icons8.com/color/35/000000/twitter.png"/>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="d-flex justify-content-center">
+      <img class="blog-image" [src]="blog.image" />
+    </div>
+    <!--  -->
+    <div class="row bg-dark p-2">
+      <div class="col-md-6">
+        <img class="avater-img rounded-circle"
+             [src]="blog.author.image" />&nbsp;
+             <span class="text-success">
+            <strong>{{blog.author.name}}</strong></span>
+      </div>
+      <div class="col-md-6 text-secondary">
+      {{hours}} hours ago, {{blog.created | date:'shortTime'}},  {{blog.created | date:'mediumDate'}}
+      </div>
+    </div>
+    <h3 class="text-secondary bg-light p-1">{{blog.paragraph}}</h3>
+  </div>
+</mat-card>

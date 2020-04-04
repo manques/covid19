@@ -1,0 +1,17 @@
+mat-sidenav-container, mat-sidenav-content {
+  width: 100%;
+  min-height: 100%;
+}
+mat-sidenav{
+  width: 250px;
+}
+/* content router page */
+.content-page {
+  margin-top: 56px;
+}
+
+@media screen and (min-width: 600px) {
+  .content-page {
+    margin-top: 64px;
+  }
+}

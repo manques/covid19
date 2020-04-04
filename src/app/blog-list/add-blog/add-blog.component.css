@@ -1,0 +1,29 @@
+.blog-card {
+  width: 350px;
+}
+
+.blog-image img{
+  width: auto;
+  height: 100px;
+}
+
+.blog-image {
+  position: relative;
+}
+.blog-image button{
+  position: absolute;
+  left: calc(50% - 72px);
+  top: calc(50% - 20px);
+  color: greenyellow;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 600px) {
+  .blog-card{
+    width: 400px;
+  }
+  .blog-image img{
+    width: auto;
+    height: 200px;
+  }
+}

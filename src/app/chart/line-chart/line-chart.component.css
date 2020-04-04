@@ -1,0 +1,13 @@
+#containerId{
+  width: 100%;
+  height: auto;
+}
+.chart-card{
+  width: 350px;
+}
+
+@media screen and (min-width: 600px){
+  .chart-card{
+    width: 600px;
+  }
+}

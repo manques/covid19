@@ -1,0 +1,18 @@
+<div class>
+  <div class="logo" (click)="sidenavClose.emit()">
+    <a  class="d-flex bg-light p-3 text-danger" routerLink="/">
+      <div><img class="logo-img" src="../../../favicon.ico" />&nbsp;</div>
+      <div><h1><strong>COVID-19</strong></h1></div>
+    </a>
+  </div>
+  <div class="px-2 mr-2">
+    <mat-chip-list class="px-1 mat-chip-list-stacked">
+      <mat-chip routerLink="/blog-list" (click)="sidenavClose.emit()">
+        <mat-icon>rss_feed</mat-icon>&nbsp;&nbsp;blog
+      </mat-chip>
+      <mat-chip routerLink="/chart" (click)="sidenavClose.emit()">
+        <mat-icon>insert_chart</mat-icon>&nbsp;&nbsp;chart
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

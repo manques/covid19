@@ -1,0 +1,39 @@
+<mat-toolbar>
+<div class="w-100 d-flex">
+  <div class="">
+    <!-- menu -->
+    <button color="primary" class="menu" mat-icon-button (click)="sidenavToggler.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- logo -->
+    <a routerLink="/">
+      <img class="logo" src="../../favicon.ico">
+    </a>
+  </div>
+  <div class="flex-grow-1">
+    <div class="d-flex justify-content-center">
+      <h1 class="text-center text-danger"><strong>COVID-19</strong></h1>
+    </div>
+  </div>
+  <div class=" d-flex">
+    <button routerLink="/chart" mat-icon-button color="primary">
+      <mat-icon>insert_chart</mat-icon>
+    </button>
+    <!-- user -->
+    <div class="user">
+      <!-- blog -->
+      <button routerLink="/blog-list" color="primary" mat-icon-button>
+        <mat-icon>rss_feed</mat-icon>
+      </button>
+      <a mat-icon-button color="primary" [matMenuTriggerFor]="signupMenu">
+        <mat-icon>person</mat-icon>
+      </a>
+    </div>
+    <mat-menu #signupMenu class="p-2 ">
+      <a *ngIf="!auth" class="bg-secondary rounded text-light mb-1" (click)="openDialog()" mat-menu-item>login/signup</a>
+      <a *ngIf="auth" class="bg-secondary rounded text-light mb-1" mat-menu-item routerLink="/profile">Profile</a>
+      <a *ngIf="auth" class="bg-secondary rounded text-light mb-1" mat-menu-item (click)="logout()">Logout</a>
+    </mat-menu>
+  </div>
+</div>
+</mat-toolbar>

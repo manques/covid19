@@ -1,0 +1,23 @@
+.blog-card{
+  width: 400px;
+}
+
+.blog-image{
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 600px){
+  .blog-card{
+    width: 500px;
+  }
+}
+.avater-img{
+  width: 40px;
+  height: 40px;
+}
+@media screen and (min-width: 750px){
+  .blog-card{
+    width: 600px;
+  }
+}

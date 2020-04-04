@@ -1,0 +1,12 @@
+.logo-img{
+  width: 30px;
+  height: 30px;
+}
+a {
+  text-decoration: none;
+}
+
+.logo *{
+  padding: 0px;
+  margin: 0px;
+}

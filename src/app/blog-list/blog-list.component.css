@@ -1,0 +1,30 @@
+.blog-image{
+  width: 100px;
+  height: auto;
+}
+
+.author-image{
+  width: 30px;
+  height: 30px;
+}
+
+.blog-desktop-image{
+  height: 150px;
+  width: auto;
+}
+
+.mobile {
+  display: block;
+}
+.desktop {
+  display: none;
+}
+
+@media screen and (min-width: 600px){
+  .mobile {
+    display: none;
+  }
+  .desktop{
+    display: block;
+  }
+}

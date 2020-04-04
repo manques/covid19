@@ -1,0 +1,36 @@
+.card-profile{
+  width: 350px;
+}
+
+.profile-image{
+  width: 100px;
+  height: 100px;
+}
+
+.profile-image-box{
+  position: relative;
+}
+.profile-image-box button{
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  z-index: 66000;
+  color: greenyellow;
+}
+.profile-image-box:hover button {
+  color: red;
+}
+
+@media screen and (min-width: 600px){
+  .card-profile{
+    width: 450px;
+  }
+  .profile-image{
+    width: 150px;
+    height: 150px;
+  }
+}
+
+a{
+  text-decoration: none;
+}

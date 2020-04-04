@@ -1,0 +1,72 @@
+<div *ngIf="spinner">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="d-flex justify-content-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="!spinner" class="row desktop p-3">
+  <div *ngFor="let blog of blogs" class="col-md-3  p-2">
+    <mat-card class="blog-card">
+      <!-- image -->
+      <div class="d-flex bg-white w-100 justify-content-center">
+        <img [routerLink]="['/blog', blog._id]" class="card-desktop-image" [src]="blog.image">
+      </div>
+      <!-- details -->
+      <div class="bg-light p-2 rounded mt-2">
+            <!-- headline -->
+          <mat-card-header class="w-100 d-flex flex-column">
+            <mat-card-subtitle class=" w-100  text-warning d-flex justify-content-between">
+              <div>{{blog.subTitle | slice:0:15}}</div>
+              <div><strong class="text-danger"> {{blog.created | date:'shortTime'}}, {{blog.created | date:'mediumDate'}}</strong></div>
+            </mat-card-subtitle>
+            <mat-card-title [routerLink]="['/blog', blog._id]" >{{blog.title | slice:0:19}}</mat-card-title>
+          </mat-card-header>
+          <!-- content paragraph -->
+          <mat-card-content>
+            <p>
+              {{blog.paragraph | slice:0:80}} ...
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="d-flex justify-content-around">
+            <div>
+              <div>
+                <img mat-card-avatar class="avatar" [src]="blog.author.image"> <strong class="text-warning">&nbsp;{{blog.author.name}}</strong>
+              </div>
+            </div>
+            <div>
+              <button color="accent" mat-icon-button>
+                <mat-icon>thumb_up</mat-icon>
+              </button>
+              <button color="accent" mat-icon-button>
+                <mat-icon>share</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<!-- mobile -->
+<div *ngIf="!spinner" class="mobile p-2" >
+  <mat-card *ngFor="let blog of blogs" class="blog-card mb-3">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-center align-items-center">
+        <img [routerLink]="['/blog', blog._id]" class="mobile-blog-image" [src]="blog.image">
+      </div>
+      <div class="flex-grow-1 bg-light ml-1 p-1 rounded">
+        <h3 [routerLink]="['/blog', blog._id]" ><strong>{{blog.title}}</strong></h3>
+        <div class="d-flex">
+          <div>
+            <img class="avatar rounded-circle"  [src]="blog.author.image">
+          </div>
+          <div class="pl-2">
+            <p class="p-0 m-0"><strong>{{blog.author.name}}</strong></p>
+            <p class="p-0 m-0">{{blog.created | date:'shortTime'}}, {{blog.created | date:'mediumDate'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

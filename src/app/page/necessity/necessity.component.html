@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- 1 -->
+    <div *ngFor="let list of lists" class="col-6 col-sm-4 col-md-3 col-xl-2">
+      <div class="d-flex justify-content-center  py-2">
+        <mat-card class="w-100">
+          <div class="d-flex justify-content-center">
+            <a [routerLink]="list.link"><img class="image-list"  [src]="list.image"/></a>
+          </div>
+          <h3 class="text-center p-0 m-0">
+            <a [routerLink]="list.link">{{list.title}}</a>
+          </h3>
+          <p class="text-center p-0 m-0">
+            <a [routerLink]="list.link">{{list.subHeading}}</a>
+          </p>
+        </mat-card>
+      </div>
+    </div>
+    <!-- end -->
+  </div>
+</div>

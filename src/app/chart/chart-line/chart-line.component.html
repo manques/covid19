@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center bg-light py-5">
+  <mat-form-field appearance="outline">
+    <mat-label>choose type of chart</mat-label>
+    <mat-select [(value)]="selection" (selectionChange)="onChart()">
+      <mat-option *ngFor="let chart of charts" [value]="chart">{{chart}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="d-flex justify-content-center row p-2">
+  <mat-card class="chart-card col-sm-12 col-md-6">
+    <canvas #canId></canvas>
+  </mat-card>
+</div>

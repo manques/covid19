@@ -1,0 +1,68 @@
+<!-- spinner -->
+<div *ngIf="spinner">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="d-flex justify-content-center p-5">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<!-- success & waring -->
+<div>
+  <div *ngIf="data?.success" class="alert alert-success alert-dismissible">
+    <button (click)="close()" type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{data?.message}} <span class="text-danger" (click)="login()">login</span></strong>
+  </div>
+  <div *ngIf="!data?.success && data?.message" class="alert alert-warning alert-dismissble">
+    <button (click)="close()" type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{data?.message}} <span class="text-danger" (click)="login()">login</span></strong>
+  </div>
+</div>
+<!-- signup form -->
+<div *ngIf="!spinner && !data" class="d-flex justify-content-center py-3">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <!-- name -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+    </div>
+    <!-- email -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+    <!-- phone -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>phone_iphone</mat-icon>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+    </div>
+    <!-- password -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-label>Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
+      </mat-form-field>
+    </div>
+    <!-- role -->
+    <div class="d-flex justify-content-center">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>work</mat-icon>
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="normal">Normal</mat-option>
+          <mat-option value="blogger">Blogger</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- submit -->
+    <button type="submit" class="w-100" mat-raised-button color="accent" [disabled]="signupForm.invalid">signup</button>
+  </form>
+</div>
